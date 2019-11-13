@@ -16,9 +16,9 @@ export default class App extends Component {
   }
 
   handleAddCart(product) {
-    const existingProduct = this.state.cart.filter(p => p.id === product.id);
+    const existingProduct = this.state.cart.filter(p => p.productId === product.productId);
     if (existingProduct.length > 0) {
-      const withoutExistingProduct = this.state.cart.filter(p => p.id !== product.id);
+      const withoutExistingProduct = this.state.cart.filter(p => p.productId !== product.productId);
       const updatedUnitsProduct = {...existingProduct[0],units: existingProduct[0] + product};
       this.setState({
         cart: [...withoutExistingProduct, updatedUnitsProduct]
@@ -32,18 +32,16 @@ export default class App extends Component {
 
   handleDeleteCart(item) {
     const updcart = this.state.cart.filter(c =>
-      (c.id == undefined) ? "" : c.id !== item.id
+      (c.productId == undefined) ? "" : c.productId !== item.productId
     );
 
     this.setState({
       cart: [...updcart]
     })
-
-    console.log(this.state.cart)
-
   }
 
   render() {
+    console.log("Main State:",this.state.cart)
     return (
       <BrowserRouter>
         <Navbar cartData={this.state.cart.map(c => <span>{c.name}{c.units}</span>)} />

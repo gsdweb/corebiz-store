@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 export default class Cart extends Component {
 
     render() {
+        console.log("CartData:",this.props.cartData)
         return (
             <div id="ibm-content-wrapper">
                 <main role="main" aria-labelledby="ibm-pagetitle-h1">
@@ -22,7 +23,7 @@ export default class Cart extends Component {
                             </div>
                             <div class="ibm-grid-col-lg-16-12 ibm-grid-col-md-8-4">
                                 {
-                                    this.props.cartData.map(cm => (cm.id == undefined) ? "Sem itens na sua lista ainda." : <CartData key={cm.id} {...cm} addCart={this.props.addCartfunc} delCart={this.props.delCartfunc} />)
+                                    this.props.cartData.map(cm => (cm.productId == undefined) ? "Sem itens na sua lista ainda." : <CartData key={cm.productId} {...cm} addCart={this.props.addCartfunc} delCart={this.props.delCartfunc} />)
                                 }
                             </div>
 

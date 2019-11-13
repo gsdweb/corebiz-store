@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import Products from '../../data/products.json';
+import axios from 'axios';
 import Logo from '../../assets/logo.png';
 import Product from './productList';
 
 export default class Catalog extends Component {
+    state = {
+        products: []
+    }    
+    componentDidMount(){
+        axios.get(`https://desolate-brushlands-20405.herokuapp.com/api/v1/products`, {}).then(res => {
+          console.log("ResData:",res.data);
+          const products = res.data;
+          this.setState({ products });
+        })
+    }
     render() {
         return (
             <div id="ibm-content-wrapper">
@@ -27,7 +37,7 @@ export default class Catalog extends Component {
                             <div class="ibm-grid-container catalog-container" data-items=".ibm-card" data-widget="setsameheight">
                                 <div class="ibm-grid-col-sm-4-4"><h3 class="ibm-h3">Merchandise products available for quotation</h3></div>
                                 {
-                                    Products.map(p => <Product key={p.id} {...p} addCart={this.props.addCartfunc} />)
+                                    this.state.products.map(p => <Product key={p.productId} {...p} addCart={this.props.addCartfunc} />)
                                 }
                             </div>
 
