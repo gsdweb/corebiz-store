@@ -2,34 +2,46 @@
     margin-bottom: 10px;
 }
 
-.catalog .ibm-card{
-    background: #edf4ff !important;
+.card{
+    height:100%;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
 }
 
-.catalog .ibm-card .ibm-card__content{
-    margin-top: -5px;
+.card:hover{
+    box-shadow: 0 2px 30px rgba(0, 0, 0, 0.1);
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
 }
 
-.catalog-top-logo{
-    margin-top: 8px;
+.card-body {
+    padding: 0 20px;
+    margin-bottom: 20px;
 }
 
-.catalog-top{
-    border-bottom: 2px solid #0062ff;
-    padding-bottom: 30px;
-}
-
-.catalog-top h2{
-    font-weight: 600;
-}
-
-.catalog-container{
-    width: 90% !important;
-    margin: auto auto !important;
-}
-
-@media only screen and (max-width: 671px) {
-    .catalog-top-logo{
-        display: none;
-    }
+.btn{
+    width: 100%;
+    background: #EF7560;
+    color: #fff;
+    margin: 20px 0 0 0;
+    padding: 15px 0;
+    font-size: 0.9em;
+    display: block!important;
+    float: left;
+    position: relative;
+    border: 1px solid #EF7560;
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
 }
